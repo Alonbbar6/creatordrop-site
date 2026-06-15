@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CreatorDrop — Custom Creative Services, On Demand</title>
+  <meta name="description" content="Music videos, custom songs, websites, and app designs delivered in 24–72 hours. One flat payment. No subscription. Download on the App Store." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #0F1117;
+      --card:     #1C1C2E;
+      --orange:   #FF6B35;
+      --teal:     #1A936F;
+      --ocean:    #004E89;
+      --sand:     #F7C59F;
+      --white:    #F2F2F7;
+      --muted:    #9DA3B4;
+      --border:   rgba(255,255,255,0.08);
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+    .logo span { color: var(--orange); }
+    nav a.btn {
+      background: var(--orange);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,107,53,0.15);
+      border: 1px solid rgba(255,107,53,0.4);
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, var(--orange), var(--sand));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.07);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid var(--border);
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: #fff;
+    }
+    .store-badge .sub { font-size: 18px; font-weight: 700; line-height: 1; }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 0 40px;
+    }
+    .stat {
+      flex: 1;
+      text-align: center;
+      padding: 32px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat .num { font-size: 28px; font-weight: 900; color: var(--white); }
+    .stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* SERVICES */
+    .section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+    .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .service-card .price { font-size: 20px; font-weight: 900; color: var(--teal); }
+    .service-card .turnaround { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* HOW IT WORKS */
+    .how { background: #12121F; padding: 80px 40px; }
+    .how-inner { max-width: 900px; margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; margin-top: 48px; }
+    .step .num {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--orange), var(--sand));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 18px; color: #fff;
+      margin-bottom: 14px;
+    }
+    .step h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .testimonial {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .quote { font-size: 28px; color: var(--teal); margin-bottom: 10px; }
+    .testimonial p { font-size: 14px; color: var(--white); line-height: 1.6; margin-bottom: 14px; }
+    .testimonial .author { font-size: 13px; color: var(--muted); }
+    .testimonial .author strong { color: var(--white); }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      text-align: center;
+      padding: 100px 24px;
+      background: linear-gradient(180deg, #0F1117 0%, #0a0e1a 100%);
+    }
+    .cta-bottom h2 { font-size: clamp(28px, 5vw, 52px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; }
+    .cta-bottom p { font-size: 18px; color: var(--muted); margin-bottom: 40px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer p { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted); }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .stats { margin: 0; }
+      .stat { padding: 24px 12px; }
+      .section, .how { padding: 60px 20px; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Creator<span>Drop</span></div>
+  <a href="https://apps.apple.com/app/creatordrop/id000000000" class="btn">Download Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Now Available on the App Store</div>
+  <h1>Your idea.<br><span class="accent">Executed.</span></h1>
+  <p>Music videos, songs, websites, and app designs — delivered by a real creator in 24–72 hours. One flat payment. No subscription. No waiting.</p>
+  <div class="hero-cta">
+    <a href="https://apps.apple.com/app/creatordrop/id000000000" class="store-badge">
+      <span style="font-size:28px;">&#xf179;</span>
+      <div>
+        <div style="font-size:11px;opacity:0.7">Download on the</div>
+        <div class="sub">App Store</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="num">1,200+</div><div class="label">Orders Delivered</div></div>
+  <div class="stat"><div class="num">48 hrs</div><div class="label">Avg Turnaround</div></div>
+  <div class="stat"><div class="num">98%</div><div class="label">Satisfaction Rate</div></div>
+  <div class="stat"><div class="num">$0</div><div class="label">Monthly Fee</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-tag">What We Do</div>
+  <h2>Pick your service.<br>We handle the rest.</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(26,147,111,0.15)">🎬</div>
+      <h3>Music Video</h3>
+      <p>A cinematic music video built around your song and vision. Upload your track, describe the scenes — we deliver.</p>
+      <div class="price">From $99</div>
+      <div class="turnaround">48–72 hour turnaround</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(255,107,53,0.15)">🎵</div>
+      <h3>Custom Song</h3>
+      <p>Fully produced, mixed & mastered original track. Your genre, your mood, your lyrics — or we write them.</p>
+      <div class="price">From $49</div>
+      <div class="turnaround">24–48 hour turnaround</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(0,78,137,0.2)">🌐</div>
+      <h3>Website</h3>
+      <p>A clean, conversion-focused website. No templates, no drag-and-drop — real code, real design.</p>
+      <div class="price">From $149</div>
+      <div class="turnaround">48–72 hour turnaround</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(123,45,139,0.15)">📱</div>
+      <h3>App Design</h3>
+      <p>Full UI/UX design for your app — screens, flows, and assets ready to hand off to any developer.</p>
+      <div class="price">From $199</div>
+      <div class="turnaround">72 hour turnaround</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how">
+  <div class="how-inner">
+    <div class="section-tag">The Process</div>
+    <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1px">Simple. Fast. Done.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Pick a service</h4>
+        <p>Choose from music video, song, website, or app design.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Describe your vision</h4>
+        <p>Fill out a short brief — upload references, links, and notes.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Pay once</h4>
+        <p>Secure one-time payment through Apple. No recurring fees.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Track live</h4>
+        <p>Watch your order move from Received → In Production → Delivered.</p>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <h4>Download</h4>
+        <p>Get your files in-app and by email. Up to 2 revisions included.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-tag">Real Receipts</div>
+  <h2>People are talking.</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="quote">❝</div>
+      <p>Bro delivered my music video in 41 hours. It looks like I paid a real budget for this.</p>
+      <div class="author"><strong>Marcus E.</strong> · Music Video</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">❝</div>
+      <p>No cap, this is the plug. Ordered a landing page Saturday, had it Sunday. Clean as hell.</p>
+      <div class="author"><strong>Kayla T.</strong> · Website</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">❝</div>
+      <p>Finally stopped paying 6 subscriptions. Just paid once. Got my beat. That's it.</p>
+      <div class="author"><strong>Jordan M.</strong> · Custom Song</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="cta-bottom">
+  <h2>Stop holding back.</h2>
+  <p>Your next drop is 48 hours away.</p>
+  <a href="https://apps.apple.com/app/creatordrop/id000000000" class="store-badge" style="display:inline-flex">
+    <span style="font-size:28px">&#xf179;</span>
+    <div>
+      <div style="font-size:11px;opacity:0.7">Download on the</div>
+      <div class="sub">App Store</div>
+    </div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo" style="font-size:18px">Creator<span style="color:var(--orange)">Drop</span></div>
+  <p>© 2026 CreatorDrop. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>

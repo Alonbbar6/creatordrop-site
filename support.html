@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — CreatorDrop</title>
+  <meta name="description" content="Get help with your CreatorDrop order. FAQ, contact support, and more." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #0F1117;
+      --card:   #1C1C2E;
+      --orange: #FF6B35;
+      --teal:   #1A936F;
+      --white:  #F2F2F7;
+      --muted:  #9DA3B4;
+      --border: rgba(255,255,255,0.08);
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; color: var(--white); }
+    .logo span { color: var(--orange); }
+
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 40px; font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero p { font-size: 16px; color: var(--muted); }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 60px 24px; }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(26,147,111,0.15), rgba(0,78,137,0.15));
+      border: 1px solid rgba(26,147,111,0.3);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .contact-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .contact-card p { font-size: 14px; color: var(--muted); }
+    .email-btn {
+      background: var(--teal);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .email-btn:hover { opacity: 0.9; text-decoration: none; }
+
+    /* FAQ */
+    .faq-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--white);
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: inherit;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.03); }
+    .faq-arrow { font-size: 18px; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      transition: max-height 0.3s ease, padding 0.2s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    /* RESPONSE TIME */
+    .info-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .info-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 13px;
+    }
+    .info-pill strong { display: block; font-size: 15px; color: var(--white); margin-bottom: 2px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p { font-size: 13px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 48px 20px 36px; }
+      .hero h1 { font-size: 28px; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .contact-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Creator<span>Drop</span></a>
+</nav>
+
+<div class="hero">
+  <h1>How can we help?</h1>
+  <p>We respond to every message within 24 hours.</p>
+</div>
+
+<div class="container">
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <div>
+      <h2>Email Support</h2>
+      <p>Describe your issue and we'll get back to you within 24 hours.</p>
+    </div>
+    <a href="mailto:heycreatordrop@gmail.com?subject=CreatorDrop%20Support%20Request&body=Hi%2C%20I%20need%20help%20with..." class="email-btn">
+      Email Us
+    </a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-title">Frequently Asked Questions</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How does CreatorDrop work?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      You pick a service, describe your vision, and pay once through the App Store. A creator gets to work immediately and delivers your files within the stated turnaround time — straight to your email.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How do I receive my completed files?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Once your order is delivered, a Download button appears in the My Orders tab of the app. You'll also receive an email notification with your files attached or linked.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How long does delivery take?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Custom Song: 24–48 hours &nbsp;·&nbsp; Music Video: 48–72 hours &nbsp;·&nbsp; Website: 48–72 hours &nbsp;·&nbsp; App Design: 72 hours. These are estimates and begin once payment is confirmed and all project details are received.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Can I request revisions?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Yes — every order includes up to 2 revisions. Revision requests must be submitted within 7 days of receiving your files. Email us at heycreatordrop@gmail.com with your order details.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      What is your refund policy?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Because every order is custom creative work, refunds are not available once work has begun. If you have a serious issue with your delivery, contact us within 48 hours and we'll work to make it right.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      How are payments handled?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      All payments are processed securely through Apple's App Store using In-App Purchase. CreatorDrop never sees or stores your payment information. Charges appear on your Apple ID billing statement.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      I placed an order but haven't heard anything — what should I do?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      Check the My Orders tab in the app for your current status. If it's been more than 24 hours past the estimated delivery time, email us at heycreatordrop@gmail.com with your order details and we'll follow up immediately.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggle(this)">
+      Can I cancel an order?
+      <span class="faq-arrow">⌄</span>
+    </button>
+    <div class="faq-answer">
+      If work has not yet begun, contact us as soon as possible at heycreatordrop@gmail.com. Once production has started, cancellation is not available. For payment disputes, you can also contact Apple Support directly.
+    </div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-pill">
+      <strong>⏱ Response Time</strong>
+      Within 24 hours
+    </div>
+    <div class="info-pill">
+      <strong>📧 Email</strong>
+      heycreatordrop@gmail.com
+    </div>
+    <div class="info-pill">
+      <strong>📱 In-App</strong>
+      Profile → Contact Support
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="logo" style="font-size:18px">Creator<span style="color:var(--orange)">Drop</span></div>
+  <p>© 2026 CreatorDrop. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/" style="color:var(--muted)">Home</a>
+    <a href="/privacy" style="color:var(--muted)">Privacy</a>
+    <a href="/terms" style="color:var(--muted)">Terms</a>
+  </div>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
